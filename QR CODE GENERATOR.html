@@ -50,12 +50,19 @@
             background-color: #45a049;
             transform: scale(1.05);
         }
-        img {
+        .qr-box {
             margin-top: 20px;
+            padding: 20px;
+            border: 3px dotted #4CAF50;
+            border-radius: 15px;
+            display: inline-block;
+            background-color: #f9f9f9;
+            animation: popUp 1s ease-in-out;
+        }
+        img {
             border-radius: 12px;
             width: 300px;
             height: 300px;
-            animation: popUp 1s ease-in-out;
         }
         h1 {
             color: #333;
@@ -103,8 +110,10 @@
 
             const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(url)}&size=300x300`;
             document.getElementById('qrResult').innerHTML = `
-                <h3>✅ ${qrName}</h3>
-                <img src="${qrUrl}" alt="Generated QR Code">
+                <div class="qr-box">
+                    <h3>✅ ${qrName}</h3>
+                    <img src="${qrUrl}" alt="Generated QR Code">
+                </div>
             `;
         }
     </script>
